@@ -50,16 +50,30 @@ function getMostCommonGenres(books) {
   // mostCommonList.splice(5);
   // return mostCommonList;
 }
+const bookNamesAndPopularity = (bookArray, emptyArray) => {
+  bookArray.forEach((book) => {
+    const name = book.title;
+    const count = book.borrows.length;
+    emptyArray.push({ name, count });
+  });
+  return emptyArray;
+};
 
 function getMostPopularBooks(books) {
   let popularityCounter = [];
+  const bookAssembler = bookNamesAndPopularity(books, popularityCounter);
   // assigns each book name
-  books.forEach((book) => {
-    const name = book.title;
-    const count = book.borrows.length;
-    popularityCounter.push({ name, count });
-  });
-  return popularityCounter
+  // books.forEach((book) => {
+  //   const name = book.title;
+  //   const count = book.borrows.length;
+  //   popularityCounter.push({ name, count });
+  // });
+  // return popularityCounter
+
+  ///////////////////////////////////////////////////////////
+
+  /////////////////////////////////////////////////////////////////
+  return bookAssembler
     .sort((bookA, bookB) => bookB.count - bookA.count)
     .slice(0, 5);
 
