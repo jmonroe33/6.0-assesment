@@ -41,7 +41,7 @@ function getMostCommonGenres(books) {
   });
   return Object.keys(genreCounter)
     .map((genre) => ({ name: genre, count: genreCounter[genre] }))
-    .sort((genreA, genreB) => genreA.count - genreB.count)
+    .sort((genreA, genreB) => genreB.count - genreA.count)
     .slice(0, 5);
   // let mostCommonList = Object.keys(genreCounter).map((genre) => {
   //   return { name: genre, count: genreCounter[genre] };
